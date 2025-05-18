@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务系统</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.iocdn.cc/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://use.sevencdn.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>任务系统</h3>
+            </div>
+            <div class="sidebar-content">
+                <div id="missionTabs">
+                    <!-- 任务分类将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <div class="mission-container">
+                <!-- 统一的头部区域，包含标题和筛选搜索 -->
+                <div class="filter-container">
+                    <div class="filter-controls">
+                        <!-- 奖励类型筛选 下拉菜单 -->
+                        <div class="filter-group">
+                            <span class="filter-label">奖励类型:</span>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="rewardFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                    选择奖励
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="rewardFilterDropdown">
+                                    <li><label class="dropdown-item"><input type="checkbox" class="form-check-input me-1 reward-filter-checkbox" data-filter-value="all" checked> 全部类型</label></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><label class="dropdown-item"><input type="checkbox" class="form-check-input me-1 reward-filter-checkbox" data-filter-value="xp"> 经验</label></li>
+                                    <li><label class="dropdown-item"><input type="checkbox" class="form-check-input me-1 reward-filter-checkbox" data-filter-value="money"> 金钱</label></li>
+                                    <li><label class="dropdown-item"><input type="checkbox" class="form-check-input me-1 reward-filter-checkbox" data-filter-value="item"> 物品</label></li>
+                                    <li><label class="dropdown-item"><input type="checkbox" class="form-check-input me-1 reward-filter-checkbox" data-filter-value="car"> 车辆</label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 任务状态筛选 下拉菜单 -->
+                        <div class="filter-group">
+                            <span class="filter-label">任务状态:</span>
+                            <select id="statusFilterSelect" class="form-select form-select-sm">
+                                <option value="all_status" selected>所有状态</option>
+                                <option value="incomplete">未完成</option>
+                                <option value="completed">已完成</option>
+                            </select>
+                        </div>
+
+                        <!-- 等级要求筛选 输入框 - 将被移除 -->
+                        <!--
+                        <div class="filter-group">
+                            <span class="filter-label">最高等级:</span>
+                            <input type="number" id="maxLevelInput" class="form-control form-control-sm" placeholder="无限制">
+                        </div>
+                        -->
+
+                        <!-- 排序方式 下拉菜单 -->
+                        <div class="filter-group">
+                            <span class="filter-label">排序方式:</span>
+                            <select id="sortSelect" class="form-select form-select-sm">
+                                <option value="default">默认排序</option>
+                                <option value="xp_desc">经验 (高到低)</option>
+                                <option value="xp_asc">经验 (低到高)</option>
+                                <option value="money_desc">金钱 (高到低)</option>
+                                <option value="money_asc">金钱 (低到高)</option>
+                                <option value="name_asc">名称 (A-Z)</option>
+                                <option value="name_desc">名称 (Z-A)</option>
+                                <!-- <option value="level_asc">等级 (低到高)</option> -->
+                                <!-- <option value="level_desc">等级 (高到低)</option> -->
+                            </select>
+                        </div>
+
+                        <!-- 搜索框 -->
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="搜索任务...">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="missionList">
+                    <!-- 任务列表将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 任务详情弹窗 -->
+    <div id="missionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">任务详情</h4>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="mission-details">
+                    <!-- 任务详情将通过JavaScript动态添加 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="startMissionBtn">开始任务</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdn.iocdn.cc/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.iocdn.cc/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
