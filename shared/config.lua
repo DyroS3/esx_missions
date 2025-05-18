@@ -136,6 +136,15 @@ Config.ResetTimes = {
 
 -- 其他杂项设置
 Config.Other = {
+  key = {
+    enable = true, -- 是否开启按键配置
+    openMission = 'F5', -- 打开任务界面
+  },
+
+  command = { -- 命令配置
+    openMission = 'missions', -- 打开任务界面
+  },
+
   updateRateLimit = true,    -- 是否开启更新速率限制, 用于检查 esx_missions:updateMissionStatus 事件的调用频率
   updateRateLimitTime = 10,  -- 更新速率限制时间, 单位: 秒
   updateRateLimitCount = 10, -- 更新速率限制次数, 单位: 次

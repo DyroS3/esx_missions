@@ -86,12 +86,14 @@ local function HideMissions()
 end
 
 -- 注册命令
-RegisterCommand('missions', function()
+RegisterCommand(Config.Other.command.openMission, function()
     ShowMissions()
 end, false)
 
 -- 注册按键
--- RegisterKeyMapping('missions', '打开任务界面', 'keyboard', 'F5')
+if Config.Other.key.enable then
+    RegisterKeyMapping(Config.Other.command.openMission, '打开任务界面', 'keyboard', Config.Other.key.openMission)
+end
 
 -- NUI回调: 关闭任务界面
 RegisterNUICallback('closeMissions', function(data, cb)
