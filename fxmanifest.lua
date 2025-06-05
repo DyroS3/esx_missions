@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'Your Name'
 description 'ESX Missions System'
-version '1.0.0'
+version '1.0.1'
 
 shared_scripts {
   '@es_extended/imports.lua',
